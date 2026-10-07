@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Schluck</title>
+
+  <!-- PWA: macht die Webseite installierbar -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1d2e">
+  <link rel="icon" href="icon-192.png">
+
+  <!-- iPhone-spezifisch -->
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Schluck">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Schluck</h1>
+      <p id="datum"></p>
+    </header>
+
+    <section class="glas-wrap">
+      <div class="glas">
+        <div class="wasser" id="wasser"></div>
+        <div class="anzeige">
+          <span id="menge">0</span>
+          <small>von <span id="ziel">2000</span> ml</small>
+        </div>
+      </div>
+      <p id="spruch">Los geht's – trink was!</p>
+    </section>
+
+    <section class="buttons">
+      <button data-ml="150">+150 ml<br><small>Tasse</small></button>
+      <button data-ml="250">+250 ml<br><small>Glas</small></button>
+      <button data-ml="500">+500 ml<br><small>Flasche</small></button>
+    </section>
+
+    <section class="aktionen">
+      <button id="rueckgaengig" class="leise">Rückgängig</button>
+      <button id="reset" class="leise">Neuer Tag</button>
+    </section>
+
+    <footer id="status"></footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
