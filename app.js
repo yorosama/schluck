@@ -70,6 +70,18 @@ document.getElementById("status").textContent = alsApp
   ? "✅ Läuft als installierte App"
   : "🌐 Läuft im Browser – zum Home-Bildschirm hinzufügen!";
 
+// ---- Zoomen verhindern (Fallback für iPhone/Safari) ----
+let letzterTipp = 0;
+document.addEventListener("touchend", e => {
+  const jetzt = Date.now();
+  if (jetzt - letzterTipp < 350) {                     // Doppeltipp → kein Zoom
+    e.preventDefault();
+    e.target.closest("button")?.click();              // Klick trotzdem zählen
+  }
+  letzterTipp = jetzt;
+}, { passive: false });
+document.addEventListener("gesturestart", e => e.preventDefault()); // Zwei-Finger-Zoom
+
 // ---- Service Worker registrieren (für Offline-Nutzung) ----
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js");

@@ -1,7 +1,7 @@
 // Service Worker: speichert die App-Dateien, damit sie auch offline läuft.
 // Tipp: Nach Änderungen an deinen Dateien die Versionsnummer erhöhen (v1 → v2),
 // dann holt sich das Handy die neue Version.
-const CACHE = "schluck-v1";
+const CACHE = "schluck-v2";
 
 const DATEIEN = [
   "./",
